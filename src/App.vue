@@ -6,7 +6,7 @@ import TheWelcome from './components/TheWelcome.vue'
 <template>
   <header>
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="Xush kelibsiz!" />
     </div>
   </header>
 
@@ -18,11 +18,6 @@ import TheWelcome from './components/TheWelcome.vue'
 <style scoped>
 header {
   line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
 }
 
 @media (min-width: 1024px) {
