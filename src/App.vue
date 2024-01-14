@@ -1,18 +1,18 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { RouterView} from "vue-router";
+import TheWelcome from "@/components/TheWelcome.vue";
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <HelloWorld msg="Xush kelibsiz!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+    <RouterView>
+      <TheWelcome/>
+    </RouterView>
+      <header>
+        <div class="wrapper">
+          <HelloWorld msg="Xush kelibsiz!"/>
+        </div>
+      </header>
 </template>
 
 <style scoped>

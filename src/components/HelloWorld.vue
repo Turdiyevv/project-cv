@@ -13,13 +13,15 @@ defineProps({
   <div class="greetings">
     <card-item>
       <template #btn-name>
-        <h5>Yaratish</h5>
+        <RouterLink to="/route">
+          <h4>Yaratish</h4>
+        </RouterLink>
       </template>
       <template #content>
-        <h3>{{ msg }}</h3>
-        <h6>
+        <h2>{{ msg }}</h2>
+        <h4>
           Siz rezume yaratishdan oldin pastdagi hujjatlar bilan tanishib chiqing!
-        </h6>
+        </h4>
       </template>
     </card-item>
   </div>
@@ -27,12 +29,12 @@ defineProps({
 
 <style scoped>
 
-h3 {
+h2 {
   text-shadow: 1px 2px 2px rgba(0,0,0,0.2);
   font-size: 1.2rem;
 }
 
-.greetings h3 {
+.greetings h2 {
   text-align: center;
 }
 
@@ -40,5 +42,9 @@ h3 {
   .greetings h3 {
     text-align: left;
   }
+  h2 {
+  text-shadow: 1px 2px 2px rgba(0,0,0,0.2);
+  font-size: 1.2rem;
+}
 }
 </style>

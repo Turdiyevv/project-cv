@@ -16,10 +16,10 @@ import CollapceItem from "@/components/elComponents/collapceItem.vue";
       <collapce-item>
         <template #btn-name>Tavfsilotlar</template>
         <template #collapse-text>
-          <h6>
+          <h4>
           Assalomu alaykum! biz sizga siz haqingizda to'liq ma'lumot beruvchi,
           chop etganda sifatli chiqadigan rezume tayorlab berish funksiyasini taklif qilamiz!
-          </h6>
+          </h4>
         </template>
       </collapce-item>
     </template>
@@ -34,10 +34,10 @@ import CollapceItem from "@/components/elComponents/collapceItem.vue";
       <collapce-item>
         <template #btn-name>Butun sistema </template>
         <template #collapse-text>
-          <h6>
+          <h4>
             Sisitema sizning kelajakda ishga joylashishingiz uchun asosiy kirish
             hujjati bo'lgan rezumeni tayorlashga mo'ljallangan!
-          </h6>
+          </h4>
         </template>
       </collapce-item>
     </template>
@@ -51,13 +51,13 @@ import CollapceItem from "@/components/elComponents/collapceItem.vue";
       <collapce-item>
         <template #btn-name>Jamoamiz</template>
         <template #collapse-text>
-          <h6>
+          <h4>
            Biz bilan hamkorlik qilishni istaganlar shuningdek qaysidir sabab bilan
             bog'lanishni xohlovchilar uchun telegram manzilimiz manzilimiz:
             <a href="https://t.me/+GjiRNZGPNjRjOTMy">
              telegram community
             </a>
-          </h6>
+          </h4>
         </template>
       </collapce-item>
     </template>
@@ -71,12 +71,12 @@ import CollapceItem from "@/components/elComponents/collapceItem.vue";
       <collapce-item>
         <template #btn-name>Biz bilan aloqa</template>
         <template #collapse-text>
-          <h6>
+          <h4>
             Aynan creator bilan bog'lanish uchun:
             <a href="sherbekturdiyev98@gmail.com">
               sherbekturdiyev98@gmail.com
             </a>
-          </h6>
+          </h4>
         </template>
       </collapce-item>
     </template>

@@ -1,7 +1,9 @@
 <template>
   <div>
     <el-button @click="show = !show" style="width: 100%" class="el-button--primary">
-      <slot name="btn-name"></slot>
+      <h4>
+        <slot name="btn-name"></slot>
+      </h4>
     </el-button>
 
     <div style="margin-top: 20px">
