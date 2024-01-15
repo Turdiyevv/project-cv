@@ -1,11 +1,10 @@
 <template>
   <div>
     <el-button @click="show = !show" style="width: 100%" class="el-button--primary">
-      <h4>
+      <h3>
         <slot name="btn-name"></slot>
-      </h4>
+      </h3>
     </el-button>
-
     <div style="margin-top: 20px">
       <el-collapse-transition>
         <div v-show="show" class="show_class">

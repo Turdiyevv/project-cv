@@ -1,14 +1,12 @@
 
 <template>
   <el-card class="box-card">
-<!--    <div ref="cardInner">-->
       <p>
         <slot name="content"></slot>
       </p>
-      <el-button class="el-button--primary card_btn_style">
+      <el-button @click="$router.push('route')" class="el-button--primary card_btn_style">
         <slot name="btn-name"></slot>
       </el-button>
-<!--    </div>-->
   </el-card>
 </template>
 
@@ -38,16 +36,14 @@
   background-color: #014578;
   border: none;
   perspective: 1000px;
-  transform-style: preserve-3d;
-  transition: transform 1s ease;
+  //transform-style: preserve-3d;
+  //transition: transform 1s ease;
   box-shadow: 0 0 32px #014577;
-}
-.box-card:hover{
-  transform: rotateY(30deg);
 }
 
 .card_btn_style{
   width: 100%;
-  margin-top: 12px;
+  color: #f2f2f2 !important;
+  text-decoration: none;
 }
 </style>
