@@ -6,13 +6,18 @@ import { RouterView} from "vue-router";
     <header>
       <h1>this is header</h1>
     </header>
-    <RouterView/>
+    <div class="main_class">
+      <RouterView/>
+    </div>
     <footer>
       <h1>this is footer</h1>
     </footer>
 </template>
 
 <style scoped>
+.main_class{
+   height: 80vh;
+}
 header, footer {
   margin-bottom: 10px;
   background-color: #293241;
@@ -21,5 +26,8 @@ header, footer {
 }
 
 @media (min-width: 1024px) {
+  header, footer{
+    margin-right: 12px;
+  }
 }
 </style>
