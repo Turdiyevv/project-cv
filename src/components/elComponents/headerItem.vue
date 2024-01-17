@@ -4,7 +4,6 @@
       <el-avatar :size="66"></el-avatar>
     </div>
     <div class="flex__div">
-
     </div>
   </div>
 </template>
@@ -25,7 +24,7 @@
   }
   .flex__div{
     margin: 5px 5px 5px 15%;
-    background-color: #2c3e50;
+    background-color: #31475c;
     height: 65px;
     width: 90%;
   }
