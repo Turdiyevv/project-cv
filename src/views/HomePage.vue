@@ -24,7 +24,6 @@ const bg = ref(false);
         </template>
     </collapce-item>
     <div :hidden="bg ? true : false" class="home_bg_img">
-
     </div>
   </main>
 </template>
@@ -33,6 +32,11 @@ const bg = ref(false);
     background-color: #293241;
     height: 70vh;
     border-radius: 5px;
+    background-image: url(../assets/Minimalism_Ac.gif);
+    //height: 400px;
+    background-position: center;
+  }
+  .four_zero_four_bg{
   }
   h2{
     padding: 0 5px 0 5px;
