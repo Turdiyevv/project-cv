@@ -1,56 +1,70 @@
 <script setup>
-    import { ref } from "vue";
+    // import { ref } from "vue";
+import CardItem from "@/components/elComponents/cardItem.vue";
 
-    const pageTitle = "Rout page";
 
-    const firsForm = ref({
-      input: '',
-      input1: '',
-      input2: '',
-    })
 </script>
 
 <template>
-  <div style="color: #f2f2f2">
-    <h1>{{ pageTitle }}</h1>
-    <el-tabs  type="border-card" class="dark">
-      <el-tab-pane label="Config">
-<!--        <el-upload-->
-<!--          style="height: 23px; width: 23px;"-->
-<!--          class="avatar-uploader"-->
-<!--          action="https://jsonplaceholder.typicode.com/posts/"-->
-<!--          :show-file-list="false">-->
-<!--        </el-upload>-->
-        <el-input
-          class="mb-3__Class"
-          placeholder="Please input"
-          v-model="firsForm.input"
-          clearable>
-        </el-input>
-        <el-input
-          class="mb-3__Class"
-          placeholder="Please input"
-          v-model="firsForm.input1"
-          clearable>
-        </el-input>
-        <el-input
-          class="mb-3__Class"
-          placeholder="Please input"
-          v-model="firsForm.input2"
-          clearable>
-        </el-input>
-      </el-tab-pane>
-      <el-tab-pane label="Role">
-        Test 2
-      </el-tab-pane>
-      <el-tab-pane label="Task">
-        test3
-      </el-tab-pane>
-    </el-tabs>
-  </div>
+  <el-scrollbar class="temp__class">
+    <card-item>
+      <template #header>Shaxsiy ma'lumotlar</template>
+      <template #btn-name>Ko'rish</template>
+      <template #card-content></template>
+      <template #footer></template>
+    </card-item>
+    <card-item>
+      <template #header>Kontakt ma'lumotlar</template>
+      <template #btn-name>Ko'rish</template>
+      <template #card-content>kontent</template>
+      <template #footer>footer</template>
+    </card-item>
+    <card-item>
+      <template #header>Sertifikatlar</template>
+      <template #btn-name>Ko'rish</template>
+      <template #card-content>kontent</template>
+      <template #footer>footer</template>
+    </card-item>
+    <card-item>
+      <template #header>Tillar</template>
+      <template #btn-name>Ko'rish</template>
+      <template #card-content>kontent</template>
+      <template #footer>footer</template>
+    </card-item>
+    <card-item>
+      <template #header>Kasbiy bilim</template>
+      <template #btn-name>Ko'rish</template>
+      <template #card-content>kontent</template>
+      <template #footer>footer</template>
+    </card-item>
+    <card-item>
+      <template #header>Ish qobilyatlari</template>
+      <template #btn-name>Ko'rish</template>
+      <template #card-content>kontent</template>
+      <template #footer>footer</template>
+    </card-item>
+    <card-item>
+      <template #header>Qo'shimcha ma'lumotlar</template>
+      <template #btn-name>Ko'rish</template>
+      <template #card-content>kontent</template>
+      <template #footer>footer</template>
+    </card-item>
+    <card-item>
+      <template #header>Yomon odatlar</template>
+      <template #btn-name>Ko'rish</template>
+      <template #card-content>kontent</template>
+      <template #footer>footer</template>
+    </card-item>
+    <card-item>
+      <template #header>Portfolio</template>
+      <template #btn-name>Ko'rish</template>
+      <template #card-content>kontent</template>
+      <template #footer>footer</template>
+    </card-item>
+  </el-scrollbar>
 </template>
 <style scoped>
-.mb-3__Class{
-  margin: 12px 0;
+.temp__class{
+  height: 79vh;
 }
 </style>

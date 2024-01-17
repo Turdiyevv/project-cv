@@ -9,13 +9,13 @@
 </template>
 <style scoped>
   .header__tab{
+    justify-content: center;
     display: flex;
     height: 100%;
     width: 100%;
   }
   .avatar__style{
     padding: 4px;
-    display: flex;
     height: 75px;
     width: 75px;
     position: absolute;
@@ -23,9 +23,9 @@
     border-radius: 50%;
   }
   .flex__div{
-    margin: 5px 5px 5px 15%;
+    margin: 5px;
     background-color: #31475c;
     height: 65px;
-    width: 90%;
+    width: 100%;
   }
 </style>
