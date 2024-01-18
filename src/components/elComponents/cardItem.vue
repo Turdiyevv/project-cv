@@ -1,19 +1,23 @@
 <template>
-  <el-card class="box-card" shadow="hover">
+  <el-card class="box-card">
       <div class="card-header">
         <span>
           <slot name="header"></slot>
         </span>
-        <el-button class="button" text>
-          <slot name="btn-name"></slot>
-        </el-button>
       </div>
     <hr>
-    <div>
+    <div style="color: #014577">
       <slot name="card-content"></slot>
     </div>
     <hr>
-    <slot name="footer"></slot>
+    <div style="justify-content: space-between; display: flex">
+      <el-avatar style="background-color: #dd9c3a">
+        <slot name="avatar"></slot>
+      </el-avatar>
+      <el-button class="button" type="warning">
+        <slot name="btn-name"></slot>
+      </el-button>
+    </div>
   </el-card>
 </template>
 
@@ -23,19 +27,9 @@
   justify-content: space-between;
   align-items: center;
 }
-
-.text {
-  font-size: 14px;
-}
-
-.item {
-  max-height: 50px;
-  margin-bottom: 18px;
-}
-
 .box-card {
   margin: 10px 0;
   max-height: 200px;
-  width: 100%;
+  width: 300px;
 }
 </style>
