@@ -4,26 +4,27 @@ import {ref} from "vue";
 
 const Info = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
     and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`
-const bg = ref(false);
-
 </script>
 
 <template>
   <main>
-    <collapce-item @click="bg =!bg;">
+    <collapce-item>
       <template #btn-name>
         Eslatma!
       </template>
         <template #collapse-text>
       <el-scrollbar max-height="70vh">
         <h2>{{ Info }}</h2>
-        <h1>
-          <RouterLink to="/route">Router</RouterLink>
-        </h1>
       </el-scrollbar>
         </template>
     </collapce-item>
-    <div :hidden="bg ? true : false" class="home_bg_img">
+    <div class="home_bg_img" v-show="false">
+      <div class="dialog__class">
+        <h1>Xush kelibsiz!</h1>
+        <h1>Xizmatlarimiz:</h1>
+        <h1>Post manager</h1>
+        <h1>Kompyuter savodxonligi</h1>
+      </div>
     </div>
   </main>
 </template>
@@ -32,11 +33,23 @@ const bg = ref(false);
     background-color: #293241;
     height: 70vh;
     border-radius: 5px;
-    background-image: url(../assets/Minimalism_Ac.gif);
-    //height: 400px;
-    background-position: center;
+    background-image: url(../assets/imgWallspic.jpg);
+    //background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
   }
-  .four_zero_four_bg{
+  .dialog__class{
+    padding: 10px;
+    color: white;
+    width: 94%;
+    height: 40%;
+    margin: auto 0;
+    justify-content: center;
+    border-radius: 30px;
+    background: transparent;
+    box-shadow: black 0 0 27px 0 !important;
+    backdrop-filter: blur(15px)
   }
   h2{
     padding: 0 5px 0 5px;
