@@ -10,7 +10,7 @@ import CardItem from "@/components/elComponents/cardItem.vue";
     <card-item>
       <template #header>Shaxsiy ma'lumotlar</template>
       <template #btn-name>Ko'rish</template>
-      <template #card-content></template>
+      <template #card-content>kontent</template>
       <template #footer></template>
     </card-item>
     <card-item>

@@ -24,7 +24,7 @@
   }
   .flex__div{
     margin: 5px;
-    background-color: #31475c;
+    background-color: #3b4756;
     height: 65px;
     width: 100%;
   }

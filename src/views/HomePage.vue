@@ -1,9 +1,9 @@
 <script setup>
-import CollapceItem from "@/components/elComponents/collapceItem.vue";
 import {ref} from "vue";
 
 const Info = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
     and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`
+
 </script>
 
 <template>
@@ -20,10 +20,24 @@ const Info = `Lorem Ipsum is simply dummy text of the printing and typesetting i
     </collapce-item>
     <div class="home_bg_img" v-show="false">
       <div class="dialog__class">
-        <h1>Xush kelibsiz!</h1>
+        <h1> Xush kelibsiz!</h1>
         <h1>Xizmatlarimiz:</h1>
-        <h1>Post manager</h1>
-        <h1>Kompyuter savodxonligi</h1>
+        <h2>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-v-ea893728=""
+            style="width: 25px; height: 25px; margin-top: 3px">
+              <path fill="currentColor" d="M512 64a448 448 0 1 1 0 896 448 448 0 0 1 0-896m-55.808 536.384-99.52-99.584a38.4 38.4 0 1 0-54.336 54.336l126.72 126.72a38.272 38.272 0 0 0 54.336 0l262.4-262.464a38.4 38.4 0 1 0-54.272-54.336z">
+          </path>
+          </svg>
+          Post manager
+        </h2>
+        <h2>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-v-ea893728=""
+            style="width: 25px; height: 25px; margin-top: 3px">
+              <path fill="currentColor" d="M512 64a448 448 0 1 1 0 896 448 448 0 0 1 0-896m-55.808 536.384-99.52-99.584a38.4 38.4 0 1 0-54.336 54.336l126.72 126.72a38.272 38.272 0 0 0 54.336 0l262.4-262.464a38.4 38.4 0 1 0-54.272-54.336z">
+          </path>
+          </svg>
+          Kompyuter savodxonligi
+        </h2>
       </div>
     </div>
   </main>
@@ -40,7 +54,7 @@ const Info = `Lorem Ipsum is simply dummy text of the printing and typesetting i
     justify-content: center;
   }
   .dialog__class{
-    padding: 10px;
+    padding: 20px;
     color: white;
     width: 94%;
     height: 40%;
@@ -52,6 +66,7 @@ const Info = `Lorem Ipsum is simply dummy text of the printing and typesetting i
     backdrop-filter: blur(15px)
   }
   h2{
+    margin: 3px 0;
     padding: 0 5px 0 5px;
     background-color: #293241;
     border-radius: 5px;
