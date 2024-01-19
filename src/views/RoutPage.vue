@@ -24,16 +24,8 @@ const dialogContact = ref(false);
 // const dialogContact = ref(false)
 // const dialogContact = ref(false)
 
-const handleClose = function(done) {
+const handleClose = function (done) {
   ElMessageBox.confirm('Are you sure to close this dialog?')
-    .then(() => {
-      done()
-    })
-    .catch(() => {
-    })
-}
-const handleContactClose = function(done) {
-  ElMessageBox.confirm('Are you sure to close Contact dialog?')
     .then(() => {
       done()
     })
@@ -64,15 +56,14 @@ const Contact = reactive(
     }
 );
 const clickDialog = function(id){
-  if (id===1){
-    this.dialogVisible = true;
-  }
-  else if(id === 2){
-    this.dialogContact = true
-  }
-  else{
-    this.dialogContact = true
-  }
+  // if (id===1){
+  //   this.dialogVisible = true;
+  // }
+  // else if(id === 2){
+  //   this.dialogContact = true
+  // }
+
+    this.dialogContact = true;
 }
 
 // const handlePreview = function(uploadFile) {
@@ -144,7 +135,7 @@ const clickDialog = function(id){
     v-model="dialogContact"
     title="Kontakt ma'lumotlari"
     width="90%"
-    :before-close="handleContactClose"
+    :before-close="handleClose"
   >
     <el-row>
       <el-input class="class_input_margin" v-model="Contact.number" placeholder="Telefon raqami" clearable />
