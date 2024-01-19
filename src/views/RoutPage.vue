@@ -1,75 +1,3 @@
-<script setup>
-import {reactive, ref} from "vue";
-import CardItem from "@/components/elComponents/cardItem.vue";
-import { ElMessageBox } from 'element-plus'
-
-const cards = ref([
-  {id:1, title: 'Shaxsiy ma\'lumotlar'},
-  {id:2, title: 'Kontakt ma\'lumotlar'},
-  {id:3, title: 'Sertifikatlar'},
-  {id:4, title: 'Tillar'},
-  {id:5, title: 'Kasbiy bilim'},
-  {id:6, title: 'Ish qobilyatlari'},
-  {id:7, title: 'Qo\'shimcha ma\'lumotlar'},
-  {id:8, title: 'Yomon odatlar'},
-  {id:9, title: 'Portfolio'},
-    ]);
-const dialogVisible = ref(false);
-const dialogContact = ref(false);
-// const dialogContact = ref(false)
-// const dialogContact = ref(false)
-// const dialogContact = ref(false)
-// const dialogContact = ref(false)
-// const dialogContact = ref(false)
-// const dialogContact = ref(false)
-// const dialogContact = ref(false)
-
-const handleClose = function (done) {
-  ElMessageBox.confirm('Are you sure to close this dialog?')
-    .then(() => {
-      done()
-    })
-    .catch(() => {
-    })
-}
-const disabledDate = function (time) {
-  return time.getTime() > Date.now()
-}
-
-const User = reactive(
-    {
-      fileList: null,
-      fio: '',
-      birth: null,
-      family: '',
-      address: '',
-      addressW: '',
-      working: '',
-      learning: '',
-    }
-);
-const Contact = reactive(
-    {
-      number: '',
-      tme: '',
-      elAddress: '',
-    }
-);
-const clickDialog = function(id){
-  // if (id===1){
-  //   this.dialogVisible = true;
-  // }
-  // else if(id === 2){
-  //   this.dialogContact = true
-  // }
-
-    this.dialogContact = true;
-}
-
-// const handlePreview = function(uploadFile) {
-//   console.log(uploadFile)
-// }
-</script>
 
 <template>
   <div class="text_label">
@@ -155,6 +83,79 @@ const clickDialog = function(id){
 
 </template>
 
+<script setup>
+import {reactive, ref} from "vue";
+import CardItem from "@/components/elComponents/cardItem.vue";
+import { ElMessageBox } from 'element-plus'
+
+const cards = ref([
+  {id:1, title: 'Shaxsiy ma\'lumotlar'},
+  {id:2, title: 'Kontakt ma\'lumotlar'},
+  {id:3, title: 'Sertifikatlar'},
+  {id:4, title: 'Tillar'},
+  {id:5, title: 'Kasbiy bilim'},
+  {id:6, title: 'Ish qobilyatlari'},
+  {id:7, title: 'Qo\'shimcha ma\'lumotlar'},
+  {id:8, title: 'Yomon odatlar'},
+  {id:9, title: 'Portfolio'},
+    ]);
+const dialogVisible = ref(false);
+const dialogContact = ref(false);
+// const dialogContact = ref(false)
+// const dialogContact = ref(false)
+// const dialogContact = ref(false)
+// const dialogContact = ref(false)
+// const dialogContact = ref(false)
+// const dialogContact = ref(false)
+// const dialogContact = ref(false)
+
+const handleClose = function (done) {
+  ElMessageBox.confirm('Are you sure to close this dialog?')
+    .then(() => {
+      done()
+    })
+    .catch(() => {
+    })
+}
+const disabledDate = function (time) {
+  return time.getTime() > Date.now()
+}
+
+const User = reactive(
+    {
+      fileList: null,
+      fio: '',
+      birth: null,
+      family: '',
+      address: '',
+      addressW: '',
+      working: '',
+      learning: '',
+    }
+);
+const Contact = reactive(
+    {
+      number: '',
+      tme: '',
+      elAddress: '',
+    }
+);
+const clickDialog = function(id){
+  if (id===1){
+    this.dialogVisible = true;
+  }
+  else if(id === 2){
+    this.dialogContact = true
+  }
+  else{
+    this.dialogContact = true
+  }
+}
+
+// const handlePreview = function(uploadFile) {
+//   console.log(uploadFile)
+// }
+</script>
 
 <style scoped>
 .temp__class{
