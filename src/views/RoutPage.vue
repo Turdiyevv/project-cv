@@ -141,15 +141,15 @@ const Contact = reactive(
     }
 );
 const clickDialog = function(id){
-  if (id===1){
     this.dialogVisible = true;
-  }
-  else if(id === 2){
-    this.dialogContact = true
-  }
-  else{
-    this.dialogContact = true
-  }
+  // if (id===1){
+  // }
+  // else if(id === 2){
+  //   this.dialogContact = true
+  // }
+  // else{
+  //   this.dialogContact = true
+  // }
 }
 
 // const handlePreview = function(uploadFile) {
