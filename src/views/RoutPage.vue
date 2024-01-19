@@ -62,6 +62,9 @@ const clickDialog = function(id){
   else if(id === 2){
     this.dialogContact = true
   }
+  else{
+    this.dialogContact = true
+  }
 }
 
 // const handlePreview = function(uploadFile) {
@@ -156,7 +159,7 @@ const clickDialog = function(id){
 
 <style scoped>
 .temp__class{
-  padding: 12px;
+  padding: 0 12px;
   height: 82vh;
 }
 .text_label{
