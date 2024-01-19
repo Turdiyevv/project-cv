@@ -101,13 +101,6 @@ const cards = ref([
     ]);
 const dialogVisible = ref(false);
 const dialogContact = ref(false);
-// const dialogContact = ref(false)
-// const dialogContact = ref(false)
-// const dialogContact = ref(false)
-// const dialogContact = ref(false)
-// const dialogContact = ref(false)
-// const dialogContact = ref(false)
-// const dialogContact = ref(false)
 
 const handleClose = function (done) {
   ElMessageBox.confirm('Are you sure to close this dialog?')
@@ -141,7 +134,7 @@ const Contact = reactive(
     }
 );
 const clickDialog = function(id){
-    this.dialogVisible = true;
+    this.dialogContact = true;
   // if (id===1){
   // }
   // else if(id === 2){
