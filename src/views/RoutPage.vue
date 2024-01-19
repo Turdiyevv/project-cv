@@ -14,7 +14,15 @@ const cards = ref([
   {id:8, title: 'Yomon odatlar'},
   {id:9, title: 'Portfolio'},
     ]);
-const dialogVisible = ref(false)
+const dialogVisible = ref(false);
+const dialogContact = ref(false);
+// const dialogContact = ref(false)
+// const dialogContact = ref(false)
+// const dialogContact = ref(false)
+// const dialogContact = ref(false)
+// const dialogContact = ref(false)
+// const dialogContact = ref(false)
+// const dialogContact = ref(false)
 
 const handleClose = function (done) {
   ElMessageBox.confirm('Are you sure to close this dialog?')
@@ -30,6 +38,7 @@ const disabledDate = function (time) {
 
 const User = reactive(
     {
+      fileList: null,
       fio: '',
       birth: null,
       family: '',
@@ -38,7 +47,26 @@ const User = reactive(
       working: '',
       learning: '',
     }
-)
+);
+const Contact = reactive(
+    {
+      number: '',
+      tme: '',
+      elAddress: '',
+    }
+);
+const clickDialog = function(id){
+  if (id===1){
+    this.dialogVisible = true;
+  }
+  else if(id === 2){
+    this.dialogContact = true
+  }
+}
+
+// const handlePreview = function(uploadFile) {
+//   console.log(uploadFile)
+// }
 </script>
 
 <template>
@@ -52,13 +80,13 @@ const User = reactive(
         <template #card-content>kontent</template>
         <template #avatar>{{ card.id }}</template>
         <template #btn-name>
-          <span @click="dialogVisible = true">Ko'rish</span>
+          <span @click="clickDialog(card.id)">Ko'rish</span>
         </template>
       </card-item>
     </el-row>
   </el-scrollbar>
 
-<!--  dialoges-->
+<!--  dialog1-->
   <el-dialog
     v-model="dialogVisible"
     title="Shaxsiy ma'lumotlar"
@@ -66,19 +94,28 @@ const User = reactive(
     :before-close="handleClose"
   >
     <el-row>
-    <el-input class="class_input_margin" v-model="User.fio" placeholder="Familiya Ism Otchestvo" clearable />
-    <el-date-picker class="class_input_margin"
-      v-model="User.birth"
-      type="date"
-      placeholder="Tug'ilgan sana"
-      :disabled-date="disabledDate"
-      clearable
-    />
-    <el-input class="class_input_margin" v-model="User.family" placeholder="Oilalimi?" clearable />
-    <el-input class="class_input_margin" v-model="User.address" placeholder="Yashash joyi" clearable />
-    <el-input class="class_input_margin" v-model="User.addressW" placeholder="Ishlash joyi" clearable />
-    <el-input class="class_input_margin" v-model="User.working" placeholder="Ish staji, mansabi" clearable />
-    <el-input class="class_input_margin" v-model="User.learning" placeholder="O'quv maskani" clearable />
+      <div style="display: flex; width: 100%">
+<!--      <el-upload-->
+<!--        :on-preview="handlePreview"-->
+<!--        v-model="User.fileList"-->
+<!--        class="upload-demo"-->
+<!--      >-->
+<!--        <el-button type="primary">Su'rat yuklash</el-button>-->
+<!--      </el-upload>-->
+      <el-date-picker
+        v-model="User.birth"
+        type="date"
+        placeholder="Tug'ilgan sana"
+        :disabled-date="disabledDate"
+        clearable
+      />
+        </div>
+      <el-input class="class_input_margin" v-model="User.fio" placeholder="Familiya Ism Otchestvo" clearable />
+      <el-input class="class_input_margin" v-model="User.family" placeholder="Oilalimi?" clearable />
+      <el-input class="class_input_margin" v-model="User.address" placeholder="Yashash joyi" clearable />
+      <el-input class="class_input_margin" v-model="User.addressW" placeholder="Ishlash joyi" clearable />
+      <el-input class="class_input_margin" v-model="User.working" placeholder="Ish staji, mansabi" clearable />
+      <el-input class="class_input_margin" v-model="User.learning" placeholder="O'quv maskani" clearable />
     </el-row>
     <template #footer>
       <span class="dialog-footer">
@@ -89,7 +126,30 @@ const User = reactive(
       </span>
     </template>
   </el-dialog>
-<!--  dialoges-->
+<!--  dialog1-->
+
+<!--  dialog2-->
+  <el-dialog
+    v-model="dialogContact"
+    title="Kontakt ma'lumotlari"
+    width="90%"
+    :before-close="handleClose"
+  >
+    <el-row>
+      <el-input class="class_input_margin" v-model="Contact.number" placeholder="Telefon raqami" clearable />
+      <el-input class="class_input_margin" v-model="Contact.tme" placeholder="Telegram manzili" clearable />
+      <el-input class="class_input_margin" v-model="Contact.elAddress" placeholder="Elektron pochta" clearable />
+    </el-row>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogContact = false">Cancel</el-button>
+        <el-button type="primary" @click="dialogContact = false">
+          Confirm
+        </el-button>
+      </span>
+    </template>
+  </el-dialog>
+<!--  dialog2-->
 
 </template>
 
@@ -108,6 +168,7 @@ const User = reactive(
   padding: 10px;
 }
 .class_input_margin{
+  width: 100%;
   margin: 5px 0;
 }
  @media (max-width: 1024px) {
