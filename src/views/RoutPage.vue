@@ -10,7 +10,7 @@
         <template #card-content>kontent</template>
         <template #avatar>{{ card.id }}</template>
         <template #btn-name>
-          <span @click="clickDialog(card.id)">Ko'rish</span>
+          <span @click=" dialogContact=true">Ko'rish</span>
         </template>
       </card-item>
     </el-row>
