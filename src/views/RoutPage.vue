@@ -10,7 +10,7 @@
         <template #card-content>kontent</template>
         <template #avatar>{{ card.id }}</template>
         <template #btn-name>
-          <span @click="clickDialog">Ko'rish</span>
+          <span @click="clickDialog(card.id)">Ko'rish</span>
         </template>
       </card-item>
     </el-row>
@@ -25,13 +25,6 @@
   >
     <el-row>
       <div style="display: flex; width: 100%">
-<!--      <el-upload-->
-<!--        :on-preview="handlePreview"-->
-<!--        v-model="User.fileList"-->
-<!--        class="upload-demo"-->
-<!--      >-->
-<!--        <el-button type="primary">Su'rat yuklash</el-button>-->
-<!--      </el-upload>-->
       <el-date-picker
         v-model="User.birth"
         type="date"
@@ -133,21 +126,17 @@ const Contact = reactive(
       elAddress: '',
     }
 );
-const clickDialog = function(){
-     this.dialogContact=true;
-  // if (id===1){
-  // }
-  // else if(id === 2){
-  //   this.dialogContact = true
-  // }
-  // else{
-  //   this.dialogContact = true
-  // }
+const clickDialog = function(id){
+  if (id===1){
+    dialogVisible.value = true;
+  }
+  else if(id === 2){
+    dialogContact.value = true;
+  }
+  else{
+    dialogContact.value = true;
+  }
 }
-
-// const handlePreview = function(uploadFile) {
-//   console.log(uploadFile)
-// }
 </script>
 
 <style scoped>
