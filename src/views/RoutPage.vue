@@ -74,6 +74,165 @@
   </el-dialog>
 <!--  dialog2-->
 
+<!--  dialog3-->
+  <el-dialog
+    v-model="dialogCertification"
+    title="Sertifikatlar"
+    width="90%"
+    :before-close="handleClose"
+  >
+    <el-row>
+      <el-input class="class_input_margin" v-model="Sertf.name" placeholder="O'qish joyi" clearable />
+      <el-input class="class_input_margin" v-model="Sertf.specialization" placeholder="Ixtisoslashuv" clearable />
+      <el-date-picker
+        v-model="Sertf.date"
+        type="date"
+        placeholder="Vaqti"
+        :disabled-date="disabledDate"
+        clearable
+      />
+    </el-row>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogCertification = false">Cancel</el-button>
+        <el-button type="primary" @click="dialogCertification = false">
+          Confirm
+        </el-button>
+      </span>
+    </template>
+  </el-dialog>
+<!--  dialog3-->
+
+<!--  dialog4-->
+  <el-dialog
+    v-model="dialogLang"
+    title="Tillar"
+    width="90%"
+    :before-close="handleClose"
+  >
+    <el-row class="is-flex">
+      <el-input class="class_input_margin" v-model="Lang.name" placeholder="Til nomi" clearable />
+      <el-input class="class_input_margin" v-model="Lang.write" placeholder="Yozish" clearable />
+      <el-input class="class_input_margin" v-model="Lang.speak" placeholder="Gapirish" clearable />
+      <el-input class="class_input_margin" v-model="Lang.read" placeholder="O'qish" clearable />
+    </el-row>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogLang = false">Cancel</el-button>
+        <el-button type="primary" @click="dialogLang = false">
+          Confirm
+        </el-button>
+      </span>
+    </template>
+  </el-dialog>
+<!--  dialog4-->
+
+<!--  dialog5-->
+  <el-dialog
+    v-model="dialogProf"
+    title="Kasbiy bilim"
+    width="90%"
+    :before-close="handleClose"
+  >
+    <el-row>
+      <el-input class="class_input_margin" v-model="Prof.name" placeholder="Kasbiy yo'nalish nomi" clearable />
+      <el-input class="class_input_margin" v-model="Prof.desc" placeholder="Batafsil" clearable />
+    </el-row>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogProf = false">Cancel</el-button>
+        <el-button type="primary" @click="dialogProf = false">
+          Confirm
+        </el-button>
+      </span>
+    </template>
+  </el-dialog>
+<!--  dialog5-->
+
+<!--  dialog6-->
+  <el-dialog
+    v-model="dialogCapacity"
+    title="Ish qobilyatlari"
+    width="90%"
+    :before-close="handleClose"
+  >
+    <el-row>
+      <el-input class="class_input_margin" v-model="Capacity.name" placeholder="Ish qobilyatlari nomi" clearable />
+      <el-input class="class_input_margin" v-model="Capacity.desc" placeholder="Batafsil" clearable />
+    </el-row>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogCapacity = false">Cancel</el-button>
+        <el-button type="primary" @click="dialogCapacity = false">
+          Confirm
+        </el-button>
+      </span>
+    </template>
+  </el-dialog>
+<!--  dialog6-->
+
+<!--  dialog7-->
+  <el-dialog
+    v-model="dialogAdditional"
+    title="Qo'shimcha ma'lumotlar, qiziqish va hobbiylari!"
+    width="90%"
+    :before-close="handleClose"
+  >
+    <el-row>
+      <el-input class="class_input_margin" v-model="Additional.adjectives" placeholder="Sifatlari" clearable />
+      <el-input class="class_input_margin" v-model="Additional.interes" placeholder="Qiziqishlari" clearable />
+    </el-row>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogAdditional  = false">Cancel</el-button>
+        <el-button type="primary" @click="dialogAdditional  = false">
+          Confirm
+        </el-button>
+      </span>
+    </template>
+  </el-dialog>
+<!--  dialog7-->
+
+<!--  dialog8-->
+  <el-dialog
+    v-model="dialogBad"
+    title="Yomon odatlari!"
+    width="90%"
+    :before-close="handleClose"
+  >
+    <el-row>
+    </el-row>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogBad  = false">Cancel</el-button>
+        <el-button type="primary" @click="dialogBad  = false">
+          Confirm
+        </el-button>
+      </span>
+    </template>
+  </el-dialog>
+<!--  dialog8-->
+
+<!--  dialog9-->
+  <el-dialog
+    v-model="dialogPortfolio"
+    title="Portfolio (Kasbi bo'yicha qilgan ishlari)"
+    width="90%"
+    :before-close="handleClose"
+  >
+    <el-row>
+    </el-row>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogPortfolio  = false">Cancel</el-button>
+        <el-button type="primary" @click="dialogPortfolio  = false">
+          Confirm
+        </el-button>
+      </span>
+    </template>
+  </el-dialog>
+<!--  dialog9-->
+
 </template>
 
 <script setup>
@@ -94,9 +253,16 @@ const cards = ref([
     ]);
 const dialogVisible = ref(false);
 const dialogContact = ref(false);
+const dialogCertification = ref(false);
+const dialogLang = ref(false);
+const dialogProf = ref(false);
+const dialogCapacity = ref(false);
+const dialogAdditional = ref(false);
+const dialogBad = ref(false);
+const dialogPortfolio = ref(false);
 
 const handleClose = function (done) {
-  ElMessageBox.confirm('Are you sure to close this dialog?')
+  ElMessageBox.confirm('Dialogni yopishga aminmisiz ?')
     .then(() => {
       done()
     })
@@ -106,7 +272,7 @@ const handleClose = function (done) {
 const disabledDate = function (time) {
   return time.getTime() > Date.now()
 }
-
+// dialogies
 const User = reactive(
     {
       fileList: null,
@@ -126,6 +292,47 @@ const Contact = reactive(
       elAddress: '',
     }
 );
+const Sertf = reactive(
+    {
+      name: '',
+      specialization: '',
+      date: null,
+    }
+);
+const Lang = reactive(
+    {
+      name: '',
+      write: null,
+      speak: null,
+      read: null,
+    }
+);
+const Prof = reactive(
+    {
+      name: '',
+      desc: '',
+    }
+);
+const Capacity = reactive(
+    {
+      name: '',
+      desc: '',
+    }
+);
+const Additional = reactive(
+    {
+      adjectives: '',
+      interes: '',
+    }
+);
+const Bad = reactive(
+    {
+      adjectives: '',
+      interes: '',
+    }
+);
+// dialogies
+
 const clickDialog = function(id){
   if (id===1){
     dialogVisible.value = true;
@@ -133,8 +340,29 @@ const clickDialog = function(id){
   else if(id === 2){
     dialogContact.value = true;
   }
-  else{
-    dialogContact.value = true;
+  else if(id === 3){
+    dialogCertification.value = true;
+  }
+  else if(id === 4){
+    dialogLang.value = true;
+  }
+  else if(id === 5){
+    dialogProf.value = true;
+  }
+  else if(id === 6){
+    dialogCapacity.value = true;
+  }
+  else if(id === 7){
+    dialogAdditional.value = true;
+  }
+  else if(id === 8){
+    dialogBad.value = true;
+  }
+  else if(id === 9){
+    dialogPortfolio.value = true;
+  }
+  else {
+    alert('is not dialog number!')
   }
 }
 </script>
