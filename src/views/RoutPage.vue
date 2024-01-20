@@ -10,7 +10,7 @@
         <template #card-content>kontent</template>
         <template #avatar>{{ card.id }}</template>
         <template #btn-name>
-          <span @click=" dialogContact=true">Ko'rish</span>
+          <span @click="clickDialog">Ko'rish</span>
         </template>
       </card-item>
     </el-row>
@@ -133,8 +133,8 @@ const Contact = reactive(
       elAddress: '',
     }
 );
-const clickDialog = function(id){
-    this.dialogContact = true;
+const clickDialog = function(){
+     this.dialogContact=true;
   // if (id===1){
   // }
   // else if(id === 2){
