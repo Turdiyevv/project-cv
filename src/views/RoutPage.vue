@@ -1,5 +1,5 @@
 
-<template>
+<template xmlns="http://www.w3.org/1999/html">
   <div class="text_label">
     <span>Rezume tayorlash uchun quyidagi kartalarni to'liq to'ldirib chiqing!</span>
   </div>
@@ -26,6 +26,13 @@
   >
     <el-row>
       <div style="display: flex; width: 100%">
+        <el-button v-model="User.fileList" type="success" style="margin-right: 7px">
+          <div>su'rat o'rni</div>
+      <input
+          type="file" name="img" accept="image/*" title="su'rat"
+          style="width: 100%; margin-left: 5px"
+      >
+        </el-button>
       <el-date-picker
         v-model="User.birth"
         type="date"
@@ -34,17 +41,24 @@
         clearable
       />
         </div>
-      <el-input class="class_input_margin" v-model="User.fio" placeholder="Familiya Ism Otchestvo" clearable />
-      <el-input class="class_input_margin" v-model="User.family" placeholder="Oilalimi?" clearable />
+      <el-input class="class_input_margin" v-model="User.fio" placeholder="Familiya Ism Otasining ismi" clearable />
+      <div style="display: flex; align-items: center">
+        <span>Oila qurmagan</span>
+        <el-switch
+          v-model="User.family"
+          style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949; margin: 0 10px"
+        />
+        <span>Oilali</span>
+      </div>
       <el-input class="class_input_margin" v-model="User.address" placeholder="Yashash joyi" clearable />
-      <el-input class="class_input_margin" v-model="User.addressW" placeholder="Ishlash joyi" clearable />
+      <el-input class="class_input_margin" v-model="User.addressW" placeholder="Ishlash joyi (Qayerda ishlamoqchisiz?)" clearable />
       <el-input class="class_input_margin" v-model="User.working" placeholder="Ish staji, mansabi" clearable />
       <el-input class="class_input_margin" v-model="User.learning" placeholder="O'quv maskani" clearable />
     </el-row>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="dialogVisible = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogVisible = false">Confirm</el-button>
+        <el-button type="danger" @click="dialogVisible= false">{{ Cancel }}</el-button>
+        <el-button type="primary" @click="dialogVisible = false">{{ Confirm }}</el-button>
       </span>
     </template>
   </el-dialog>
@@ -65,8 +79,8 @@
     </el-row>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="dialogContact = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogContact = false">Confirm</el-button>
+        <el-button type="danger" @click="dialogContact= false">{{ Cancel }}</el-button>
+        <el-button type="primary" @click="dialogContact = false">{{ Confirm }}</el-button>
       </span>
     </template>
   </el-dialog>
@@ -93,8 +107,8 @@
     </el-row>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="dialogCertification = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogCertification = false">Confirm</el-button>
+        <el-button type="danger" @click="dialogCertification= false">{{ Cancel }}</el-button>
+        <el-button type="primary" @click="dialogCertification = false">{{ Confirm }}</el-button>
       </span>
     </template>
   </el-dialog>
@@ -116,8 +130,8 @@
     </el-row>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="dialogLang = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogLang = false">Confirm</el-button>
+        <el-button type="danger" @click="dialogLang= false">{{ Cancel }}</el-button>
+        <el-button type="primary" @click="dialogLang = false">{{ Confirm }}</el-button>
       </span>
     </template>
   </el-dialog>
@@ -137,8 +151,8 @@
     </el-row>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="dialogProf = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogProf = false">Confirm</el-button>
+        <el-button type="danger" @click="dialogProf= false">{{ Cancel }}</el-button>
+        <el-button type="primary" @click="dialogProf = false">{{ Confirm }}</el-button>
       </span>
     </template>
   </el-dialog>
@@ -158,8 +172,8 @@
     </el-row>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="dialogCapacity = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogCapacity = false">Confirm</el-button>
+        <el-button type="danger" @click="dialogCapacity= false">{{ Cancel }}</el-button>
+        <el-button type="primary" @click="dialogCapacity = false">{{ Confirm }}</el-button>
       </span>
     </template>
   </el-dialog>
@@ -179,8 +193,8 @@
     </el-row>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="dialogAdditional  = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogAdditional  = false">Confirm</el-button>
+        <el-button type="danger" @click="dialogAdditional = false">{{ Cancel }}</el-button>
+        <el-button type="primary" @click="dialogAdditional  = false">{{ Confirm }}</el-button>
       </span>
     </template>
   </el-dialog>
@@ -198,8 +212,8 @@
     </el-row>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="dialogBad  = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogBad  = false">Confirm</el-button>
+        <el-button type="danger" @click="dialogBad = false">{{ Cancel }}</el-button>
+        <el-button type="primary" @click="dialogBad  = false">{{ Confirm }}</el-button>
       </span>
     </template>
   </el-dialog>
@@ -217,8 +231,8 @@
     </el-row>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="dialogPortfolio  = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogPortfolio  = false">Confirm</el-button>
+        <el-button type="danger" @click="dialogPortfolio = false">{{ Cancel }}</el-button>
+        <el-button type="primary" @click="dialogPortfolio  = false">{{ Confirm }}</el-button>
       </span>
     </template>
   </el-dialog>
@@ -252,6 +266,9 @@ const dialogAdditional = ref(false);
 const dialogBad = ref(false);
 const dialogPortfolio = ref(false);
 
+const Cancel = 'Ortga';
+const Confirm = 'Tasdiqlash';
+
 const handleClose = function (done) {
   ElMessageBox.confirm('Dialogni yopishga aminmisiz ?')
     .then(() => {
@@ -267,9 +284,9 @@ const disabledDate = function (time) {
 const User = reactive(
     {
       fileList: null,
-      fio: '',
       birth: null,
-      family: '',
+      fio: '',
+      family: false,
       address: '',
       addressW: '',
       working: '',

@@ -62,12 +62,18 @@
     /*backdrop-filter: blur(15px)*/
   }
   .menu_view{
+    border: 1px solid black;
+    cursor: pointer;
     align-items: center;
     display: flex;
     margin: 3px 0;
     padding: 0 7px;
     background-color: #293241;
     border-radius: 5px;
+  }
+  .menu_view:active{
+    border: none;
+    background-color: #4c596f;
   }
   h3{
     margin: 5px 0;
