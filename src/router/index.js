@@ -13,6 +13,16 @@ const router = createRouter({
       path: '/route',
       name: 'route',
       component: () => import('../views/RoutPage.vue')
+    },
+    {
+      path: '/post-manager',
+      name: 'post-manager',
+      component: () => import('../views/PostManager.vue')
+    },
+    {
+      path: '/computer',
+      name: 'computer',
+      component: () => import('../views/ComputerPage.vue')
     }
   ]
 })

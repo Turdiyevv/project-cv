@@ -4,14 +4,14 @@
     <span>Rezume tayorlash uchun quyidagi kartalarni to'liq to'ldirib chiqing!</span>
   </div>
   <el-scrollbar class="temp__class">
-    <el-row class="row-bg" justify="space-evenly">
+    <el-row justify="space-evenly">
       <card-item v-for="card in cards" :key="card.id">
         <template #header>{{ card.title }}</template>
         <template #card-content>kontent</template>
-        <template #avatar>{{ card.id }}</template>
-        <template #btn-name>
-          <span @click="clickDialog(card.id)">Ko'rish</span>
-        </template>
+          <template #avatar>{{ card.id }}</template>
+          <template #btn-name>
+            <span @click="clickDialog(card.id)">Ko'rish</span>
+          </template>
       </card-item>
     </el-row>
   </el-scrollbar>
@@ -20,8 +20,9 @@
   <el-dialog
     v-model="dialogVisible"
     title="Shaxsiy ma'lumotlar"
-    width="90%"
     :before-close="handleClose"
+    width="90%"
+    class="dialog-component"
   >
     <el-row>
       <div style="display: flex; width: 100%">
@@ -43,9 +44,7 @@
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogVisible = false">
-          Confirm
-        </el-button>
+        <el-button type="primary" @click="dialogVisible = false">Confirm</el-button>
       </span>
     </template>
   </el-dialog>
@@ -57,6 +56,7 @@
     title="Kontakt ma'lumotlari"
     width="90%"
     :before-close="handleClose"
+    class="dialog-component"
   >
     <el-row>
       <el-input class="class_input_margin" v-model="Contact.number" placeholder="Telefon raqami" clearable />
@@ -66,9 +66,7 @@
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogContact = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogContact = false">
-          Confirm
-        </el-button>
+        <el-button type="primary" @click="dialogContact = false">Confirm</el-button>
       </span>
     </template>
   </el-dialog>
@@ -80,6 +78,7 @@
     title="Sertifikatlar"
     width="90%"
     :before-close="handleClose"
+    class="dialog-component"
   >
     <el-row>
       <el-input class="class_input_margin" v-model="Sertf.name" placeholder="O'qish joyi" clearable />
@@ -95,9 +94,7 @@
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogCertification = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogCertification = false">
-          Confirm
-        </el-button>
+        <el-button type="primary" @click="dialogCertification = false">Confirm</el-button>
       </span>
     </template>
   </el-dialog>
@@ -109,6 +106,7 @@
     title="Tillar"
     width="90%"
     :before-close="handleClose"
+    class="dialog-component"
   >
     <el-row class="is-flex">
       <el-input class="class_input_margin" v-model="Lang.name" placeholder="Til nomi" clearable />
@@ -119,9 +117,7 @@
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogLang = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogLang = false">
-          Confirm
-        </el-button>
+        <el-button type="primary" @click="dialogLang = false">Confirm</el-button>
       </span>
     </template>
   </el-dialog>
@@ -133,6 +129,7 @@
     title="Kasbiy bilim"
     width="90%"
     :before-close="handleClose"
+    class="dialog-component"
   >
     <el-row>
       <el-input class="class_input_margin" v-model="Prof.name" placeholder="Kasbiy yo'nalish nomi" clearable />
@@ -141,9 +138,7 @@
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogProf = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogProf = false">
-          Confirm
-        </el-button>
+        <el-button type="primary" @click="dialogProf = false">Confirm</el-button>
       </span>
     </template>
   </el-dialog>
@@ -155,6 +150,7 @@
     title="Ish qobilyatlari"
     width="90%"
     :before-close="handleClose"
+    class="dialog-component"
   >
     <el-row>
       <el-input class="class_input_margin" v-model="Capacity.name" placeholder="Ish qobilyatlari nomi" clearable />
@@ -163,9 +159,7 @@
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogCapacity = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogCapacity = false">
-          Confirm
-        </el-button>
+        <el-button type="primary" @click="dialogCapacity = false">Confirm</el-button>
       </span>
     </template>
   </el-dialog>
@@ -177,6 +171,7 @@
     title="Qo'shimcha ma'lumotlar, qiziqish va hobbiylari!"
     width="90%"
     :before-close="handleClose"
+    class="dialog-component"
   >
     <el-row>
       <el-input class="class_input_margin" v-model="Additional.adjectives" placeholder="Sifatlari" clearable />
@@ -185,9 +180,7 @@
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogAdditional  = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogAdditional  = false">
-          Confirm
-        </el-button>
+        <el-button type="primary" @click="dialogAdditional  = false">Confirm</el-button>
       </span>
     </template>
   </el-dialog>
@@ -199,15 +192,14 @@
     title="Yomon odatlari!"
     width="90%"
     :before-close="handleClose"
+    class="dialog-component"
   >
     <el-row>
     </el-row>
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogBad  = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogBad  = false">
-          Confirm
-        </el-button>
+        <el-button type="primary" @click="dialogBad  = false">Confirm</el-button>
       </span>
     </template>
   </el-dialog>
@@ -219,15 +211,14 @@
     title="Portfolio (Kasbi bo'yicha qilgan ishlari)"
     width="90%"
     :before-close="handleClose"
+    class="dialog-component"
   >
     <el-row>
     </el-row>
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogPortfolio  = false">Cancel</el-button>
-        <el-button type="primary" @click="dialogPortfolio  = false">
-          Confirm
-        </el-button>
+        <el-button type="primary" @click="dialogPortfolio  = false">Confirm</el-button>
       </span>
     </template>
   </el-dialog>
@@ -389,7 +380,11 @@ const clickDialog = function(id){
      margin:0 0 7px 0;
    }
  }
-
+@media (min-width: 816px) {
+  .dialog-component {
+    width: 30% !important;
+  }
+}
 .dialog-footer button:first-child {
   margin-right: 10px;
 }

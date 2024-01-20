@@ -10,7 +10,7 @@
       <slot name="card-content"></slot>
     </div>
     <hr>
-    <div style="justify-content: space-between; display: flex">
+    <div style="justify-content: space-between; display: flex; align-items: center">
       <el-avatar style="background-color: #dd9c3a">
         <slot name="avatar"></slot>
       </el-avatar>

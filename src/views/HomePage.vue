@@ -9,7 +9,7 @@
       <div class="dialog__class">
         <h2> Xush kelibsiz!</h2>
         <h2>Xizmatlarimiz:</h2>
-        <div class="menu_view">
+        <div class="menu_view" @click="$router.push('/post-manager')">
           <h3>Post manager</h3>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-v-ea893728=""
             class="svg">
@@ -18,7 +18,7 @@
           </svg>
         </div>
 
-        <div class="menu_view">
+        <div class="menu_view" @click="$router.push('/computer')">
           <h3>Kompyuter savodxonligi</h3>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-v-ea893728=""
             class="svg">
@@ -27,7 +27,7 @@
           </svg>
         </div>
 
-        <div class="menu_view">
+        <div class="menu_view" @click="$router.push('/route')">
           <h3>Bepul rezume tayorlash</h3>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-v-ea893728=""
             class="svg">
