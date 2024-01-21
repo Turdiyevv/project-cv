@@ -1,5 +1,4 @@
-
-<template xmlns="http://www.w3.org/1999/html">
+<template>
   <div class="text_label">
     <span>Rezume tayorlash uchun quyidagi kartalarni to'liq to'ldirib chiqing!</span>
   </div>
@@ -24,36 +23,56 @@
     width="90%"
     class="dialog-component"
   >
-    <el-row>
-      <div style="display: flex; width: 100%">
-        <el-button v-model="User.fileList" type="success" style="margin-right: 7px">
-          <div>su'rat o'rni</div>
-      <input
-          type="file" name="img" accept="image/*" title="su'rat"
-          style="width: 100%; margin-left: 5px"
-      >
-        </el-button>
-      <el-date-picker
-        v-model="User.birth"
-        type="date"
-        placeholder="Tug'ilgan sana"
-        :disabled-date="disabledDate"
-        clearable
-      />
-        </div>
-      <el-input class="class_input_margin" v-model="User.fio" placeholder="Familiya Ism Otasining ismi" clearable />
-      <div style="display: flex; align-items: center">
-        <span>Oila qurmagan</span>
-        <el-switch
-          v-model="User.family"
-          style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949; margin: 0 10px"
+    <el-row :gutter="24">
+      <el-col :xs="24" :sm="12" :md="8">
+          <el-button v-model="User.fileList" type="success" style="margin-right: 7px">
+            <div>su'rat o'rni</div>
+        <input
+            type="file" name="img" accept="image/*" title="su'rat"
+            style="width: 100%; margin-left: 5px"
+        >
+          </el-button>
+        </el-col>
+        <el-col :xs="24" :sm="12" :md="8">
+          <label>Tug'ilgan sana</label>
+        <el-date-picker
+          v-model="User.birth"
+          type="date"
+          placeholder="Tug'ilgan sana"
+          :disabled-date="disabledDate"
+          clearable
         />
-        <span>Oilali</span>
-      </div>
-      <el-input class="class_input_margin" v-model="User.address" placeholder="Yashash joyi" clearable />
-      <el-input class="class_input_margin" v-model="User.addressW" placeholder="Ishlash joyi (Qayerda ishlamoqchisiz?)" clearable />
-      <el-input class="class_input_margin" v-model="User.working" placeholder="Ish staji, mansabi" clearable />
-      <el-input class="class_input_margin" v-model="User.learning" placeholder="O'quv maskani" clearable />
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8">
+        <label>FIO</label>
+        <el-input class="class_input_margin" v-model="User.fio" placeholder="Familiya Ism Otasining ismi" clearable />
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8">
+        <div style="display: flex; align-items: center">
+          <span>Oila qurmagan</span>
+          <el-switch
+            v-model="User.family"
+            style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949; margin: 0 10px"
+          />
+          <span>Oilali</span>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8">
+        <label>Ro'yxatga olingan yashash manzili</label>
+        <el-input class="class_input_margin" v-model="User.address" placeholder="Viloyat, Tuman, Shahar" clearable />
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8">
+        <label>Ishlash joyi</label>
+        <el-input cl  ass="class_input_margin" v-model="User.addressW" placeholder="Qayerda ishlamoqchisiz?" clearable />
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8">
+        <label>Ish staji</label>
+        <el-input class="class_input_margin" v-model="User.working" placeholder="Ish staji, mansabi" clearable />
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="8">
+        <label>O'quv muassasasi</label>
+        <el-input class="class_input_margin" v-model="User.learning" placeholder="Tugatgan o'quv muassasasi" clearable />
+      </el-col>
     </el-row>
     <template #footer>
       <span class="dialog-footer">
@@ -72,10 +91,21 @@
     :before-close="handleClose"
     class="dialog-component"
   >
-    <el-row>
-      <el-input class="class_input_margin" v-model="Contact.number" placeholder="Telefon raqami" clearable />
-      <el-input class="class_input_margin" v-model="Contact.tme" placeholder="Telegram manzili" clearable />
-      <el-input class="class_input_margin" v-model="Contact.elAddress" placeholder="Elektron pochta" clearable />
+    <el-row :gutter="24">
+      <el-col :xs="24" :sm="12" :md="6" :lg="8">
+        <label>Telefon raqam</label>
+        <MaskInput mask="(##) ###-##-##" class="class_input_margin" v-model="Contact.number"
+                   placeholder="(99) 999-99-99">
+        </MaskInput>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="6" :lg="8">
+        <label>Telegram manzil</label>
+        <el-input class="class_input_margin" v-model="Contact.tme" placeholder="@Falonchiyev" clearable />
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="6" :lg="8">
+        <label>Elektron pochta</label>
+        <el-input class="class_input_margin" v-model="Contact.elAddress" placeholder="falonchiyev@gmail.com" clearable />
+      </el-col>
     </el-row>
     <template #footer>
       <span class="dialog-footer">
@@ -94,19 +124,31 @@
     :before-close="handleClose"
     class="dialog-component"
   >
-    <el-row>
-      <el-input class="class_input_margin" v-model="Sertf.name" placeholder="O'qish joyi" clearable />
-      <el-input class="class_input_margin" v-model="Sertf.specialization" placeholder="Ixtisoslashuv" clearable />
-      <el-date-picker
-        v-model="Sertf.date"
-        type="date"
-        placeholder="Vaqti"
-        :disabled-date="disabledDate"
-        clearable
-      />
+    <el-row :gutter="24">
+      <el-col :xs="24" :sm="12" :md="6" :lg="8">
+        <label>O'quv markaz nomi</label>
+        <el-input class="class_input_margin" v-model="Sertf.name" placeholder="O'qish joyi" clearable />
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="6" :lg="8">
+        <label>Ixtisoslashuv</label>
+        <el-input class="class_input_margin" v-model="Sertf.specialization" placeholder="Ixtisoslashuv" clearable />
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="6" :lg="8">
+        <label>Olgan vaqti</label>
+        <p></p>
+        <el-date-picker
+            style=" height: min-content;"
+          v-model="Sertf.date"
+          type="date"
+          placeholder="Vaqti"
+          :disabled-date="disabledDate"
+          clearable
+        />
+      </el-col>
     </el-row>
     <template #footer>
       <span class="dialog-footer">
+        <el-button type="success" >Qo'shish</el-button>
         <el-button type="danger" @click="dialogCertification= false">{{ Cancel }}</el-button>
         <el-button type="primary" @click="dialogCertification = false">{{ Confirm }}</el-button>
       </span>
@@ -122,14 +164,27 @@
     :before-close="handleClose"
     class="dialog-component"
   >
-    <el-row class="is-flex">
-      <el-input class="class_input_margin" v-model="Lang.name" placeholder="Til nomi" clearable />
-      <el-input class="class_input_margin" v-model="Lang.write" placeholder="Yozish" clearable />
-      <el-input class="class_input_margin" v-model="Lang.speak" placeholder="Gapirish" clearable />
-      <el-input class="class_input_margin" v-model="Lang.read" placeholder="O'qish" clearable />
+    <el-row :gutter="24">
+      <el-col :xs="24" :sm="12" :md="12" :lg="12">
+        <label> Til nomi</label>
+        <el-input class="class_input_margin" v-model="Lang.name" placeholder="Til nomi" clearable />
+      </el-col>
+      <el-col :xs="24" :sm="4" :md="4" :lg="4">
+        <label>Yozish sifati</label>
+        <el-input class="class_input_margin" v-model="Lang.write" placeholder="Yozish" clearable />
+      </el-col>
+      <el-col :xs="24" :sm="4" :md="4" :lg="4">
+        <label>Gapirish sfati</label>
+        <el-input class="class_input_margin" v-model="Lang.speak" placeholder="Gapirish" clearable />
+      </el-col>
+      <el-col :xs="24" :sm="4" :md="4" :lg="4">
+        <label>O'qish sifati</label>
+        <el-input class="class_input_margin" v-model="Lang.read" placeholder="O'qish" clearable />
+      </el-col>
     </el-row>
     <template #footer>
       <span class="dialog-footer">
+        <el-button type="success">Qo'shish</el-button>
         <el-button type="danger" @click="dialogLang= false">{{ Cancel }}</el-button>
         <el-button type="primary" @click="dialogLang = false">{{ Confirm }}</el-button>
       </span>
@@ -145,9 +200,15 @@
     :before-close="handleClose"
     class="dialog-component"
   >
-    <el-row>
-      <el-input class="class_input_margin" v-model="Prof.name" placeholder="Kasbiy yo'nalish nomi" clearable />
-      <el-input class="class_input_margin" v-model="Prof.desc" placeholder="Batafsil" clearable />
+    <el-row :gutter="24">
+      <el-col :xs="24" :sm="8" :md="8" :lg="6">
+        <label>Kasbiy yo'nalish</label>
+        <el-input class="class_input_margin" v-model="Prof.name" placeholder="Kasbiy yo'nalish nomi" clearable />
+      </el-col>
+      <el-col :xs="24" :sm="16" :md="16" :lg="18">
+        <label>Batafsil</label>
+        <el-input class="class_input_margin" v-model="Prof.desc" placeholder="Batafsil" clearable />
+      </el-col>
     </el-row>
     <template #footer>
       <span class="dialog-footer">
@@ -166,9 +227,15 @@
     :before-close="handleClose"
     class="dialog-component"
   >
-    <el-row>
-      <el-input class="class_input_margin" v-model="Capacity.name" placeholder="Ish qobilyatlari nomi" clearable />
-      <el-input class="class_input_margin" v-model="Capacity.desc" placeholder="Batafsil" clearable />
+    <el-row :gutter="24">
+      <el-col :xs="24" :sm="8" :md="8" :lg="6">
+        <label>Ish qobilyati nomi</label>
+        <el-input class="class_input_margin" v-model="Capacity.name" placeholder="Ish qobilyatlari nomi" clearable />
+      </el-col>
+      <el-col :xs="24" :sm="16" :md="16" :lg="18">
+        <label>Batafsil</label>
+        <el-input class="class_input_margin" v-model="Capacity.desc" placeholder="Batafsil" clearable />
+      </el-col>
     </el-row>
     <template #footer>
       <span class="dialog-footer">
@@ -187,9 +254,19 @@
     :before-close="handleClose"
     class="dialog-component"
   >
-    <el-row>
-      <el-input class="class_input_margin" v-model="Additional.adjectives" placeholder="Sifatlari" clearable />
-      <el-input class="class_input_margin" v-model="Additional.interes" placeholder="Qiziqishlari" clearable />
+    <el-row :gutter="24">
+      <el-col :xs="24" :sm="8" :md="8" :lg="6">
+        <label>Sifatlari</label>
+        <el-input class="class_input_margin" v-model="Additional.adjectives" placeholder="Sifatlari" clearable />
+      </el-col>
+      <el-col :xs="24" :sm="8" :md="8" :lg="8">
+        <label>Qiziqishlari</label>
+        <el-input class="class_input_margin" v-model="Additional.interes" placeholder="Qiziqishlari" clearable />
+      </el-col>
+      <el-col :xs="24" :sm="8" :md="8" :lg="8">
+        <label>Hobbylari</label>
+        <el-input class="class_input_margin" v-model="Additional.hobbys" placeholder="Qiziqishlari" clearable />
+      </el-col>
     </el-row>
     <template #footer>
       <span class="dialog-footer">
@@ -209,6 +286,33 @@
     class="dialog-component"
   >
     <el-row>
+      <el-col :xs="24" :sm="8" :md="8">
+        <div style="display: flex; align-items: center">
+          <span>Chekish</span>
+          <el-switch
+            v-model="Bad.smoking"
+            style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949; margin: 0 10px"
+          />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="8" :md="8">
+        <div style="display: flex; align-items: center">
+          <span>Alkogol</span>
+          <el-switch
+            v-model="Bad.alcogole"
+            style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949; margin: 0 10px"
+          />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="8" :md="8">
+        <div style="display: flex; align-items: center">
+          <span>Boshqa</span>
+          <el-switch
+            v-model="Bad.other"
+            style="--el-switch-on-color: #13ce66; --el-switch-off-color: #ff4949; margin: 0 10px"
+          />
+        </div>
+      </el-col>
     </el-row>
     <template #footer>
       <span class="dialog-footer">
@@ -228,6 +332,16 @@
     class="dialog-component"
   >
     <el-row>
+      <el-col :xs="24" :sm="8" :md="8" :lg="8">
+        <label>Portfolio</label>
+        <el-input class="class_input_margin"
+                 v-model="Portfolio.first"
+                show-word-limit
+                type="textarea"
+                 placeholder="Qilgan ishlari"
+                 clearable
+        />
+      </el-col>
     </el-row>
     <template #footer>
       <span class="dialog-footer">
@@ -331,12 +445,19 @@ const Additional = reactive(
     {
       adjectives: '',
       interes: '',
+      hobbys: '',
     }
 );
 const Bad = reactive(
     {
-      adjectives: '',
-      interes: '',
+      smoking: false,
+      alcogole: false,
+      other: false,
+    }
+);
+const Portfolio = reactive(
+    {
+      first: '',
     }
 );
 // dialogies
