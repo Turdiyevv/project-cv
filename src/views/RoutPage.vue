@@ -137,7 +137,7 @@
         <label>Olgan vaqti</label>
         <p></p>
         <el-date-picker
-            style=" height: min-content;"
+          style=" height: min-content; margin-top: -10px"
           v-model="Sertf.date"
           type="date"
           placeholder="Vaqti"
@@ -165,22 +165,52 @@
     class="dialog-component"
   >
     <el-row :gutter="24">
-      <el-col :xs="24" :sm="12" :md="12" :lg="12">
+      <el-col :xs="24" :sm="12" :md="8" :lg="12" style="margin-bottom: 5px">
         <label> Til nomi</label>
         <el-input class="class_input_margin" v-model="Lang.name" placeholder="Til nomi" clearable />
       </el-col>
-      <el-col :xs="24" :sm="4" :md="4" :lg="4">
-        <label>Yozish sifati</label>
-        <el-input class="class_input_margin" v-model="Lang.write" placeholder="Yozish" clearable />
+      <el-col :xs="24" :sm="6" :md="8" :lg="4" style="margin-bottom: 5px">
+        <div>
+          <label>Yozish sifati</label>
+        </div>
+        <el-button type="primary" style="margin: 7px 0" @click="nextWr">Sifat</el-button>
+        <el-steps :active="active" finish-status="success">
+          <el-step title="1" />
+          <el-step title="2" />
+          <el-step title="3" />
+          <el-step title="4" />
+          <el-step title="5" />
+        </el-steps>
       </el-col>
-      <el-col :xs="24" :sm="4" :md="4" :lg="4">
-        <label>Gapirish sfati</label>
-        <el-input class="class_input_margin" v-model="Lang.speak" placeholder="Gapirish" clearable />
+        <p></p>
+      <el-col :xs="24" :sm="6" :md="8" :lg="4" style="margin-bottom: 5px">
+        <div>
+          <label>Gapirish sfati</label>
+        </div>
+        <el-button type="primary" style="margin: 7px 0" @click="nextSp">Sifat</el-button>
+        <el-steps :active="activeSp" finish-status="success">
+          <el-step title="1" />
+          <el-step title="2" />
+          <el-step title="3" />
+          <el-step title="4" />
+          <el-step title="5" />
+        </el-steps>
       </el-col>
-      <el-col :xs="24" :sm="4" :md="4" :lg="4">
-        <label>O'qish sifati</label>
-        <el-input class="class_input_margin" v-model="Lang.read" placeholder="O'qish" clearable />
+        <p></p>
+      <el-col :xs="24" :sm="6" :md="8" :lg="4" style="margin-bottom: 5px">
+        <div>
+          <label>O'qish sifati</label>
+        </div>
+        <el-button type="primary" style="margin: 7px 0" @click="nextRd">Sifat</el-button>
+        <el-steps :active="activeRd" finish-status="success">
+          <el-step title="1" />
+          <el-step title="2" />
+          <el-step title="3" />
+          <el-step title="4" />
+          <el-step title="5" />
+        </el-steps>
       </el-col>
+        <p></p>
     </el-row>
     <template #footer>
       <span class="dialog-footer">
@@ -207,7 +237,13 @@
       </el-col>
       <el-col :xs="24" :sm="16" :md="16" :lg="18">
         <label>Batafsil</label>
-        <el-input class="class_input_margin" v-model="Prof.desc" placeholder="Batafsil" clearable />
+        <el-input class="class_input_margin"
+                v-model="Prof.desc"
+                show-word-limit
+                type="textarea"
+                 placeholder="Batafsil"
+                 clearable
+        />
       </el-col>
     </el-row>
     <template #footer>
@@ -234,7 +270,13 @@
       </el-col>
       <el-col :xs="24" :sm="16" :md="16" :lg="18">
         <label>Batafsil</label>
-        <el-input class="class_input_margin" v-model="Capacity.desc" placeholder="Batafsil" clearable />
+        <el-input class="class_input_margin"
+                  v-model="Capacity.desc"
+                show-word-limit
+                type="textarea"
+                 placeholder="Batafsil"
+                 clearable
+        />
       </el-col>
     </el-row>
     <template #footer>
@@ -380,6 +422,10 @@ const dialogAdditional = ref(false);
 const dialogBad = ref(false);
 const dialogPortfolio = ref(false);
 
+const active = ref(0);
+const activeSp = ref(0);
+const activeRd = ref(0);
+
 const Cancel = 'Ortga';
 const Confirm = 'Tasdiqlash';
 
@@ -394,6 +440,19 @@ const handleClose = function (done) {
 const disabledDate = function (time) {
   return time.getTime() > Date.now()
 }
+const nextWr = function(){
+  if (active.value++ > 4) active.value = 0;
+  Lang.write = active.value;
+}
+const nextSp = function(){
+  if (activeSp.value++ > 4) activeSp.value = 0;
+  Lang.speak = activeSp.value;
+}
+const nextRd = function(){
+  if (activeRd.value++ > 4) activeRd.value = 0;
+  Lang.read = activeRd.value;
+}
+
 // dialogies
 const User = reactive(
     {
