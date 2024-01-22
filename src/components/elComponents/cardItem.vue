@@ -28,7 +28,7 @@
   align-items: center;
 }
 .box-card {
-  margin: 10px 0;
+  margin: 10px 10px;
   max-height: 200px;
   width: 300px;
 }
