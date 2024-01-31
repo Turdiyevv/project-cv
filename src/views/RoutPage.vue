@@ -133,22 +133,44 @@
         <label>Ixtisoslashuv</label>
         <el-input class="class_input_margin" v-model="Sertf.specialization" placeholder="Ixtisoslashuv" clearable />
       </el-col>
-      <el-col :xs="24" :sm="12" :md="6" :lg="8">
+      <el-col :xs="24" :sm="12" :md="12" :lg="8">
         <label>Olgan vaqti</label>
         <p></p>
-        <el-date-picker
-          style=" height: min-content; margin-top: -10px"
-          v-model="Sertf.date"
-          type="date"
-          placeholder="Vaqti"
-          :disabled-date="disabledDate"
-          clearable
-        />
+        <div style="display: flex; width: 100%">
+          <el-date-picker
+              style=" height: min-content;"
+            v-model="Sertf.date"
+            type="date"
+            placeholder="Vaqti"
+            :disabled-date="disabledDate"
+            clearable
+          />
+          <el-button type="success" style="margin-left: 4px"
+            @click="addSertificate(item.id)"
+          >Qo'shish</el-button>
+        </div>
+      </el-col>
+    </el-row>
+    <el-row :gutter="24" v-for="item in sertList" :key="item.id">
+      <el-col :xs="2" :sm="2" :md="2" :lg="2">
+        <h5>№</h5>
+        <h6>{{item.id}}</h6>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="6" :lg="7">
+        <h5>Nomi</h5>
+        <h6>{{item.name}}</h6>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="6" :lg="7">
+        <h5>Ixtisos</h5>
+        <h6>{{item.specialization}}</h6>
+      </el-col>
+      <el-col :xs="24" :sm="12" :md="6" :lg="7">
+        <h5>Davr</h5>
+        <h6>{{item.date}}</h6>
       </el-col>
     </el-row>
     <template #footer>
       <span class="dialog-footer">
-        <el-button type="success" >Qo'shish</el-button>
         <el-button type="danger" @click="dialogCertification= false">{{ Cancel }}</el-button>
         <el-button type="primary" @click="dialogCertification = false">{{ Confirm }}</el-button>
       </span>
@@ -426,6 +448,15 @@ const active = ref(0);
 const activeSp = ref(0);
 const activeRd = ref(0);
 
+const sertList = ref([
+  {
+    id: null,
+    name: '',
+    specialization: '',
+    date: null,
+  }
+])
+
 const Cancel = 'Ortga';
 const Confirm = 'Tasdiqlash';
 
@@ -452,6 +483,8 @@ const nextRd = function(){
   if (activeRd.value++ > 4) activeRd.value = 0;
   Lang.read = activeRd.value;
 }
+
+
 
 // dialogies
 const User = reactive(
