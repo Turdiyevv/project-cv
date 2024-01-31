@@ -175,11 +175,11 @@
         </div>
         <el-button type="primary" style="margin: 7px 0" @click="nextWr">Sifat</el-button>
         <el-steps :active="active" finish-status="success">
-          <el-step title="1" />
-          <el-step title="2" />
-          <el-step title="3" />
-          <el-step title="4" />
-          <el-step title="5" />
+          <el-step title="1"/>
+          <el-step title="2"/>
+          <el-step title="3"/>
+          <el-step title="4"/>
+          <el-step title="5"/>
         </el-steps>
       </el-col>
         <p></p>
