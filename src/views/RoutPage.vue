@@ -152,10 +152,22 @@
       </el-col>
     </el-row>
     <el-table :data="certList" style="width: 100%" max-height="250">
-      <el-table-column prop="id" label="№" />
+      <el-table-column label="№" prop="id">
+         <template slot-scope="scope">{{scope.row.id}}</template>
+      </el-table-column>
       <el-table-column prop="name" label="Name" />
       <el-table-column prop="specialization" label="Specialization" />
       <el-table-column prop="date" label="Date" />
+      <el-table-column prop="action" label="Action" >
+        <template #default="scope">
+<!--            @click="handleDelete(scope.$index, scope.row)"-->
+          <el-button
+            size="small"
+            type="danger"
+            >Delete
+          </el-button>
+        </template>
+      </el-table-column>
     </el-table>
     <template #footer>
       <span class="dialog-footer">
@@ -409,7 +421,8 @@
 <script setup>
 import {reactive, ref} from "vue";
 import CardItem from "@/components/elComponents/cardItem.vue";
-import { ElMessageBox } from 'element-plus'
+import { ElMessageBox, ElNotification } from "element-plus";
+import { v4 as uuidv4 } from 'uuid';
 
 const cards = ref([
   {id:1, title: 'Shaxsiy ma\'lumotlar'},
@@ -437,27 +450,39 @@ const activeSp = ref(0);
 const activeRd = ref(0);
 
 const certList = ref([
-  {
-    id: null,
-    name: '',
-    specialization: '',
-    date: null,
-  }
 ])
 
 const Cancel = 'Ortga';
 const Confirm = 'Tasdiqlash';
 
 const addCertificate = function (Certf){
-  if (Certf){
-    const newCertificate = {
+  if (Certf.name && Certf.specialization && Certf.date){
+     const newCertificate = {
+      id: uuidv4(),
       name: Certf.name,
       specialization: Certf.specialization,
-      date: Certf.date,
+      date: Certf.date.toLocaleDateString(),
     }
     certList.value.push(newCertificate)
+    Certf.name = '';
+    Certf.specialization = '';
+    Certf.date = null;
+    ElNotification({
+      message: 'to\'g\'ri bajarildi',
+      type: 'success'
+    })
+  }
+  else {
+    ElNotification({
+      message: 'to\'liq emas',
+      type: 'error'
+    })
   }
 };
+
+// const handleDelete = (index: number, row: User) => {
+//   console.log(index, row)
+// }
 
 const handleClose = function (done) {
   ElMessageBox.confirm('Dialogni yopishga aminmisiz ?')
@@ -506,6 +531,7 @@ const Contact = reactive(
 );
 const Certf = reactive(
     {
+      id: null,
       name: '',
       specialization: '',
       date: null,
