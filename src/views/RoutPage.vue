@@ -153,15 +153,15 @@
     </el-row>
     <el-table :data="certList" style="width: 100%" max-height="250">
       <el-table-column label="№" prop="id">
-         <template slot-scope="scope">{{scope.row.id}}</template>
+         <template  #default="scope">{{scope.row.id.slice(0, 5)}}</template>
       </el-table-column>
       <el-table-column prop="name" label="Name" />
       <el-table-column prop="specialization" label="Specialization" />
       <el-table-column prop="date" label="Date" />
       <el-table-column prop="action" label="Action" >
         <template #default="scope">
-<!--            @click="handleDelete(scope.$index, scope.row)"-->
           <el-button
+            @click="handleClickDelete(scope.row.id, certList)"
             size="small"
             type="danger"
             >Delete
@@ -423,6 +423,7 @@ import {reactive, ref} from "vue";
 import CardItem from "@/components/elComponents/cardItem.vue";
 import { ElMessageBox, ElNotification } from "element-plus";
 import { v4 as uuidv4 } from 'uuid';
+import { handleDelete } from "@/mixins/delete.js";
 
 const cards = ref([
   {id:1, title: 'Shaxsiy ma\'lumotlar'},
@@ -479,9 +480,25 @@ const addCertificate = function (Certf){
     })
   }
 };
-
-// const handleDelete = (index: number, row: User) => {
-//   console.log(index, row)
+const handleClickDelete = (id, certList) => {
+  const newMassive = handleDelete(id, certList);
+  certList = newMassive;
+  return certList;
+}
+// const handleDelete = (id) => {
+//   const indexToDelete = certList.value.findIndex(item => item.id ===id);
+//   if (indexToDelete !== -1){
+//     certList.value.splice(indexToDelete, 1);
+//     ElNotification({
+//       message: 'O\'chirildi',
+//       type: "success"
+//     })
+//   }else {
+//     ElNotification({
+//       message: 'Topilmadi',
+//       type: "error"
+//     })
+//   }
 // }
 
 const handleClose = function (done) {
